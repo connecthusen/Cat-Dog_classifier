@@ -37,7 +37,7 @@ The app downloads the model dynamically from Hugging Face Hub, so you **do not n
 - **Hosted on:** [Hugging Face Hub](https://huggingface.co/Kutti-AI/cat-dog)  
 - **Loading code:**
 
-```python
+```python(version must be 2.10 or 2.18 or 2 series)
 from fastai.vision.all import load_learner
 from huggingface_hub import hf_hub_download
 
