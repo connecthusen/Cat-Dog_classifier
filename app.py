@@ -11,6 +11,8 @@ model_path = hf_hub_download(
     filename="model_fastai.pkl"
 )
 
+def is_cat(x): return x[0].isupper()
+    
 # Load learner
 learn = load_learner(model_path)
 
@@ -19,8 +21,12 @@ learn = load_learner(model_path)
 # ===============================
 categories = ("Dog", "Cat")
 
-def classify_image(img):
-    pred, idx, probs = learn.predict(img)
+def classify_image(im):
+    learn.model.eval()  # Force evaluation mode
+    if not isinstance(im, Image.Image):
+        im = Image.fromarray(im)
+    with learn.no_bar():
+        pred, idx, probs = learn.predict(im)
     return dict(zip(categories, map(float, probs)))
 
 # ===============================
