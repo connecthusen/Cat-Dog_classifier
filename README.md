@@ -69,9 +69,10 @@ http://127.0.0.1:7860
 
 ## 🧰 Requirements
 
-fastai==2.8.4
-torch==2.8.0
-torchvision
+fastai==2.7.13
+fastcore==1.5.55
+torch==2.1.2
+torchvision==0.16.2
 transformers==4.40.2
 datasets==2.13.1
 numpy==1.24.4
